@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Snake" >
-        <activity android:name=".Main"
+        <activity android:name=".Snake"
             android:label="Snake"
             android:screenOrientation="portrait"
             android:exported="true">

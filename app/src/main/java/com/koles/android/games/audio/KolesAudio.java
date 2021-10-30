@@ -46,6 +46,7 @@ public class KolesAudio implements Audio{
             int soundId = soundPool.load(descriptor, 0);
             kolesSoundEffect = new KolesSoundEffect(soundPool, soundId);
         }catch(IOException e){
+            e.printStackTrace();
             System.out.println(e.getMessage() + " - KolesAudio.newSoundEffect exception");
         }
         return kolesSoundEffect;
