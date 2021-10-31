@@ -40,15 +40,15 @@ public class KolesAudio implements Audio{
 
     @Override
     public SoundEffect newSoundEffect(String soundEffectFile){
-        KolesSoundEffect kolesSoundEffect = null;
+        KolesSoundEffect soundEffect = null;
         try{
             AssetFileDescriptor descriptor = assetMnager.openFd(soundEffectFile);
             int soundId = soundPool.load(descriptor, 0);
-            kolesSoundEffect = new KolesSoundEffect(soundPool, soundId);
+            soundEffect = new KolesSoundEffect(soundPool, soundId);
         }catch(IOException e){
             e.printStackTrace();
             System.out.println(e.getMessage() + " - KolesAudio.newSoundEffect exception");
         }
-        return kolesSoundEffect;
+        return soundEffect;
     }
 }

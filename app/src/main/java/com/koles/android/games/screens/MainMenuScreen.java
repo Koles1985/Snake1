@@ -1,4 +1,4 @@
-package com.koles.android.games.view;
+package com.koles.android.games.screens;
 
 import com.koles.android.games.graphics.Assets;
 import com.koles.android.games.graphics.Graphics;

@@ -1,11 +1,12 @@
-package com.koles.android.games.view;
+package com.koles.android.games.screens;
 
-import com.koles.android.games.audio.SoundEffect;
 import com.koles.android.games.graphics.Assets;
 import com.koles.android.games.graphics.Graphics;
 import com.koles.android.games.mechanicsgame.Game;
 import com.koles.android.games.mechanicsgame.Screen;
 import com.koles.android.games.mechanicsgame.Settings;
+
+import java.io.IOException;
 
 public class LoadingScreen extends Screen {
 
@@ -38,9 +39,22 @@ public class LoadingScreen extends Screen {
         Assets.stain2 = g.newPixmap("stain2.png", Graphics.PixmapFormat.ARGB4444);
         Assets.stain3 = g.newPixmap("stain3.png", Graphics.PixmapFormat.ARGB4444);
 
-        Assets.click = game.getAudio().newSoundEffect("click.ogg");
-        Assets.eat = game.getAudio().newSoundEffect("eat.ogg");
-        Assets.bitten = game.getAudio().newSoundEffect("canibal.ogg");
+        try {
+            Assets.click = game.getAudio().newSoundEffect("click.ogg");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage() + " - LoadingScreen.Assets.click - exception");
+        }
+        try {
+            Assets.eat = game.getAudio().newSoundEffect("eat.ogg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            Assets.bitten = game.getAudio().newSoundEffect("canibal.ogg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Settings.load(game.getFileIO());
         game.setScreen(new MainMenuScreen(game));
